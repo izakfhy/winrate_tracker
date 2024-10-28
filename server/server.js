@@ -6,6 +6,7 @@ const tradeRoutes = require('./routes/tradeRoutes');
 const app = express();
 app.use(bodyParser.json());
 
+app.use(express.static(path.join(__dirname, '../build')));
 // Test database connection and sync models
 sequelize.sync()
   .then(() => console.log('Database synced'))
@@ -14,6 +15,9 @@ sequelize.sync()
 // Set up routes
 app.use('/api', tradeRoutes);
 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../build', 'index.html'));
+});
 // Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
