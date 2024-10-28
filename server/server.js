@@ -2,8 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const sequelize = require('./config/db');
 const tradeRoutes = require('./routes/tradeRoutes');
+const cors = require('cors');
+
 
 const app = express();
+
+// Enable CORS for all routes
+app.use(cors());
 app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, '../build')));
