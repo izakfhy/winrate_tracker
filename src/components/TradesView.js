@@ -35,6 +35,7 @@ function TradesView() {
             <th>Timestamp</th>
             <th>Capital</th>
             <th>Profit/Loss</th>
+            <th>Percent Gain/loss</th>
           </tr>
         </thead>
         <tbody>
@@ -45,6 +46,13 @@ function TradesView() {
               <td>
                 {index > 0 ? (
                   `$${(trade.capital - trades[index - 1].capital).toFixed(6)}`
+                ) : (
+                  '-'
+                )}
+              </td>
+              <td>
+              {index > 0 ? (
+                  `${(((trade.capital - trades[index - 1].capital)/trades[index - 1].capital) * 100).toFixed(2)}%`
                 ) : (
                   '-'
                 )}
