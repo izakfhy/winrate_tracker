@@ -41,10 +41,10 @@ function TradesView() {
           {trades.map((trade, index) => (
             <tr key={trade.id}>
               <td>{new Date(trade.timestamp).toLocaleString()}</td>
-              <td>${trade.capital.toFixed(2)}</td>
+              <td>${trade.capital.toFixed(6)}</td>
               <td>
                 {index > 0 ? (
-                  `$${(trade.capital - trades[index - 1].capital).toFixed(2)}`
+                  `$${(trade.capital - trades[index - 1].capital).toFixed(6)}`
                 ) : (
                   '-'
                 )}
