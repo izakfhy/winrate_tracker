@@ -2,7 +2,7 @@ const { Sequelize } = require('sequelize');
 
 const fs = require('fs');
 const path = require('path');
-const caCertPath = path.join(__dirname, 'ca.pem');
+const caCertPath = path.join(__dirname, '../../ca.pem');
 const caCert = fs.readFileSync(caCertPath, 'utf8');
 
 // Connect to MySQL Database
